@@ -1,0 +1,3187 @@
+/* Header Font */
+/* Our font name is Montserrat so we give the font-family the same name, we also set the weight
+and style. With font display we give the font face a small block period and an infinite swap period.
+With unicode-range we are specifying the list of characters we want to include with this font and lastly
+with scr : url() we import the font*/
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Hw5aXo.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Footer Font */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    src: url(https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Main Font */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Everything inside here applies to every webpage.
+Box sizing is calculating  the width and height of the elements.*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Body */
+
+/* Editing the backgroung color of the webpage*/
+/* We have 3 cells in the grid : grid__header, grid__main and grid__footer and each one of the cells has a width of 1fr.
+Because we split the cells using frames the grid becomes responsive*/
+body {
+
+    /* appearance */
+    background-color: #333333;
+
+
+    /* grid */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*responsive*/
+    grid-template-areas:
+        "grid__header"
+        "grid__main"
+        "grid__footer";
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Header */
+
+/*Editing the header of the website: editing the placement of the search bar and the other options, the size of the header, the backround color,
+the height and the space of the header, the placement of the header in the website.*/
+/* We change the width to 100% so our header size can be responsive*/
+/* The grid__header is the first cell out of 3. We use grid-area to specify its location within the grid */
+/* We use the flex container to place inside the elements of the header, align them in center and placing them 
+towards in the end of the flex-direction.*/
+
+header { 
+    /* grid*/
+    grid-area: grid__header;
+
+    /* flex */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+
+    /* space */
+    padding: 30px 25px;
+
+    /* appearance */
+    background-color: #24252a;
+
+    /* position */
+    position: fixed;
+    top: 0;
+
+
+    /* z-index */
+    z-index: 1;
+
+
+    /* responsive */
+    width: 100%;
+    height: 5em;
+
+
+}
+
+/* Editing the position of the logo in the search bar */
+.logo {
+    margin-right: auto;
+}
+
+/* Editing the size of our logo */
+.logo img {
+    width: 150px;
+}
+  
+/* Removing the bullets from the list (Products, Contact us, About us) */
+/*  We use a flex container to place inside of it the links */
+.nav__links {
+    list-style: none;
+
+    /* flex */
+    display: flex;
+
+
+}
+  
+/* Using ihneritance to editing the liks (logo, products, contact us and about us) : adding the font, the heaght of the letters,
+the color, and removing the line above the links */
+.nav__links a {
+    /* text */
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+/*Changing the space between the links(logo, products, contact us and about us)*/
+.nav__links li {
+    /* position */
+    padding: 0px 20px;
+}
+
+
+/*Changing the time that the link turns blue when we hover*/
+.nav__links li a {
+    /* transition */
+    transition: all 0.3s ease 0s;
+}
+ 
+ 
+/*Changing the color of the links when we hover over them*/
+.nav__links li a:hover {
+    /* text */
+    color: #0088a9;
+}
+
+/* Editing the search bar: editing the location, the size of the letters and the border */
+.search__bar { 
+    /* position */
+    float: right;
+
+    /* text */
+    font-size: 17px;
+
+    /* border */
+    border: 2px solid  #396474;
+    border-radius: 5px;
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Main */
+
+/* Editing the font and color of the letters, as the space of the website
+and the header  */
+/* The grid__main is the second cell out of 3. We use grid-area to specify its location within the grid */
+main {
+    /* grid */
+    grid-area: grid__main;
+    
+    /* position */
+    margin-top: 6em;
+
+    /* text */
+    color: #ccc;
+    font-family: sans-serif;
+ 
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Footer */
+
+/* Editing the footer's website: adding the backround color, the font and color of the letters, the space bettween the box and the letters 
+the width and the height*/
+/* The grid__footer is the second cell out of 3. We use grid-area to specify its location within the grid */
+footer {
+
+    /* grid */
+    grid-area: grid__footer;
+   
+    /* appearance */
+    background-color: #24252a;
+
+    /* size */
+    height: auto; 
+    
+     /* text */
+    font-family: "Open Sans";
+    color: #ccc;
+
+    /* position */
+    padding-top: 20px;
+}
+
+/* Footer top contains the contact info and social media. We edit the position of them here */
+/* We use a flex container to place inside the social media pictures. We center the items along the line
+and in the cross-axis*/
+.footer__top {
+
+
+    /* flex */
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+    /* text */
+    text-align: center;
+}
+
+/* Editing foter's h3 that is : "contact information" and "or follow us on social media" 
+We edit the size of the letters and the weight(meaning how bold they are), we make the first letter of each word capital and 
+edit the height of the line above them*/
+.footer__top h3 {
+
+    /* text */
+   font-size: 1.8rem;
+   font-weight: 400;
+   text-transform: capitalize;
+   line-height: 3rem;
+}
+
+/* Editing foter's p ("call" and "email") using ihneritance :
+We edit the max width of the text, the space between them and the size of the */
+.footer__top p {
+    /* size */
+  max-width: 500px;
+
+   /* position */
+  margin: 5px auto;
+  line-height: 28px;
+
+   /* text */
+  font-size: 14px;
+}
+
+
+/* Editing the space on the left and right of the contact information*/
+.footer__contact__info {
+    /* position */
+   margin: 0 60px;
+
+}
+/* Editing the space on the left and right of the social media*/
+.footer__socials {
+    /* position */
+    margin: 0 60px;
+}
+
+
+/* Removing the dots of the list on the phone and email */
+.footer__contact__info li {
+    /* text */
+   list-style: none;
+}
+
+/* We change the color of the links (phone and website) and their size */
+.footer__contact__info li a {
+    /* text */
+    font-size: 1.1rem;
+    color: #9fa6cc;
+}
+
+/* We change the color of the links (phone and website) when we hover over them*/
+.footer__contact__info li:hover a {
+    /* text */
+   font-size: 1.1rem;
+   color: aquamarine;
+}
+
+/* We edit the images of the social media in the footer: delete the dots of the list and edit the space between them and everything
+in the footer*/
+ /* We use a flex container to place inside the social media pictures. We center the items along the line
+and in the cross-axis*/
+.footer__social__links {
+
+    /* flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    /* text */
+    list-style: none;
+
+    /* position */
+    margin: 1rem 0 1.5rem 0;
+}
+
+/* We edit the space between the images in the list using inheritance*/
+.footer__social__links li {
+
+    /* position */
+    margin: 0 10px;
+}
+
+/*We edit the height and width of the social media images using inheritance*/
+.footer__socials li img{
+
+    /* size */
+    width: 30px;
+    height: auto;
+}
+
+/*We edit the space of the "Copyright ©2022 VIOL. Designed By V&O" : we edit the backround
+color, the width, the space between the letters and the box and lastly we align the text
+in the center */
+.footer__bottom {
+
+    /* appearance */
+    background: #000;
+
+    /* size */
+    width: 100vw;
+
+    /* position */
+    padding: 8px 0;
+
+    /* text */
+    text-align: center;
+}
+
+/*We edit the text "Copyright ©2022 VIOL using inheritance. Designed By V&O" : we edit the size, the space
+between the words anf making sure the first letter of evey word is capital */
+.footer__bottom h6 {
+
+    /* text */
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+/*We edit the "V&O" from "Copyright ©2022 VIOL. Designed By V&O": we make every first letter of
+every word capital, making it more transparent and less bold */
+.footer__bottom span {
+
+    /* text */
+    text-transform: uppercase;
+    font-weight: 200;
+
+    /* appearance */
+    opacity: .8;
+}
+
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Index */
+
+/* We have 3 cells in the grid : grid__index__banner, grid__index__intro and grid__index__offers and each one of the cells has a width of 1fr.
+The grid becomes responsive cause we use fr*/
+.index__content {
+
+    /* grid */
+    display: grid;
+    grid-template-columns: 1fr; /*responsive*/
+    grid-template-areas:
+        "grid__index__banner"
+        "grid__index__intro"
+        "grid__index__offers";
+}
+
+/*We edit the first image of our webpage : we edit the width and space between itself and the other elements
+of the website. We also add a border below the image with the text. */
+/* The grid__index__banner is the first cell out of 3. We use grid-area to specify its location within the grid. */
+/* We use a flex container to place inside the living room image and the information of our website*/
+/* We change the width to 100% and it becomes responsive */
+.index__banner {
+    /* responsive */
+    width: 100%;
+    
+    /* grid */
+    grid-area: grid__index__banner;
+
+    /* flex */
+    display: flex;
+
+    /* position */
+    margin-bottom: 75px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 50px;
+}
+
+/* The grid__index__banner is the second cell out of 3. We use grid-area to specify its location within the grid. */
+/* We use a flex container to place inside the information. We center the items along the line and in the cross-axis*/
+/* We add space below with margin-bottom*/
+.index_info_container{
+
+    /* flex */
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+
+    /* position */
+    margin-bottom: 50px;
+
+    /* grid */
+    grid-area: grid__index__intro;
+
+}
+/* We edit the width of the image that we use */
+/* We change the width to 100% */
+.index_info_container img{
+    /* responsive */
+    width: 100%;
+}
+
+/* We edit the introduction text inside the image: we edit the position inside the image, its border, size and backround color.
+We use position absolute to place the text over the image,place it over with top and left and then add space inside the box with padding.
+ We add space below and left with margin */
+.index__info {
+
+    /* responsive */
+    width:90%;
+    font-size: 1vw;
+    
+    /* size */
+    min-height:240px;
+    height: auto;
+    max-width: 900px;
+
+    /* border */
+    border-radius: 10px;
+    border-style: double;
+
+    /* appearance */
+    background-color: #414141bf;
+
+    /* position */
+    padding: 20px;
+    margin-bottom: 50px;
+    position: absolute;
+
+    
+}
+
+/* We edit the space below  Welcome */
+.index__info h1 {
+    /* position */
+    padding-bottom: 4px;
+}
+
+
+/* We use inheritance to edit the last element of the list and ass space above it */
+.index__info h1:last-of-type {
+    /* position */
+    padding-top: 15px;
+}
+
+/* We edit the style of the bullets and space on the left */
+.index__info li {
+    /* appearance */
+    list-style-type: circle;
+
+    /* position */
+    margin-left: 15px;
+}
+
+/* We use inheritance to change the weight of some specific words from the text */
+.index__info li span {
+    /* text */
+    font-weight: 600;
+}
+
+/* We use a flex container to place inside the offers. 
+With flex-wrap:wrap we place the items into multiple lines.
+With flex-direction:row the container's main-axis is the same as the text direction
+With justify-content: center  we center the items along the line*/
+.offers__flexfox {
+
+    /* flex */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+/* The grid__index__banner is the last cell. We use grid-area to specify its location within the grid. */
+.index__offers {
+    /* grid */
+    grid-area: grid__index__offers;
+
+}
+
+/* Inside Christmas offers we place all the products with their offers. We center them, edit the font size, add space 
+below the flexbox with margin, add space between the products with padding and we add a line below after the flexbox  */
+/* We change the width and padding and make them responsive */
+.index__christmas__offer{
+    
+    /* text */
+    text-align: center;
+
+    /* text */
+    font-size: 150%;
+
+    /* position */
+    padding-left: 2vw;
+    margin-bottom: 75px;
+    padding-bottom: 60px;
+
+    /* appearance */
+    border-bottom: 1px solid #ccc;
+    
+}
+
+/* We edit the text of the set offer and add space between the products with padding */
+/* We make the position and the text responsive */
+.index__set__offer {
+    /* text */
+    text-align: center;
+    font-size: 150%;
+
+    /* position */
+    padding-left: 2vw;
+    padding-bottom: 40px;
+}
+
+
+/* We edit the size of the titles "Christmas 2022 offers" and "Buy more to save more" */
+.index__christmas__offer, .index__set__offer h1 {
+    /* position */
+    padding-bottom: 15px;
+}
+
+
+/* We remove the bullets from the lists of offers and add space at the end*/
+.index__christmas__offer li, .index__set__offer li {
+    /* appearance */
+     list-style: none;
+ 
+     /* position */
+     margin: 30px;
+ }
+
+/* We edit the space under the product sales*/
+.index__christmas__offer article, .index__set__offer article {
+    /* position */
+    padding-bottom: 50px;
+}
+
+/* We edit the links of the products : we change the color, remove the underlines and add pace below*/
+.index__christmas__offer li article a, .index__set__offer li article a {
+    /* text */
+    color: #ccc;
+    text-decoration: none;
+
+    /* position */
+    padding-bottom: 100px;
+}
+
+/* We edit the images of the products : we edit the height, width, circling their angles and adding space below */
+.index__christmas__offer li article a img, .index__set__offer li article a img{
+    /* size */
+    width: 300px;
+    height: 300px;
+
+    /* position */
+    margin-bottom: 10px;
+
+    /* border */
+    border-radius: 10px;
+}
+
+/* We add shadow to the images when we hover over them*/
+.index__christmas__offer li article a img:hover, .index__set__offer li article a img:hover {
+    /* appearance */
+    box-shadow: 8px 8px 5px rgb(31, 37, 40);
+}
+
+/* We add shadow to the letters when we hover over them*/
+.index__christmas__offer li article a:hover, .index__set__offer li article a:hover {
+    /* text */
+    text-shadow: 2px 2px 2px rgb(31, 37, 40);
+}
+
+/* We add space below the product names */
+.index__christmas__offer li article a h3, .index__set__offer li article a h3 {
+    /* position */
+    margin-bottom: 4px;
+}
+
+/* We edit the cross line over the price */
+.product__price span, .index__set__offer h2 span {
+    /* appearance */
+    text-decoration: line-through red;
+}
+
+/* We add a shadow over the text */
+.index__set__offer h2 span:hover {
+    text-shadow: 2px 2px 2px rgb(31, 37, 40);
+}
+
+/* We edit the title : Buy SODERHAMN products set and save 475.00€ (2,975.00€ 2,500€)*/
+.index__set__offer h2 {
+    /* text */
+    font-size: 90%;
+
+    /* position */
+    padding-bottom: 20px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Products Categories */
+
+/* We edit the header witch is : Our Products. We edit the text size and weight, place it in center, add the lines above and below it,
+add the big line under the header and adjust the position of it */
+.categories__header {
+
+    /* position */
+    padding-top: 70px;
+    margin-bottom: 50px;
+    padding-bottom: 3px;
+
+    /* text */
+    text-align: center;
+    font-size: 265%;
+    font-weight: 500;
+    line-height: 70px;
+    text-decoration: underline overline;
+    
+    /* appearance */
+    border-bottom: 1px solid #ccc;
+    
+}
+
+/* We use a flex container to place inside all the cards of each room. 
+We center the items along the lineand in the cross-axis with justify-content: center and align-content: center;
+With flex-wrap: wrap we place the items into multiple lines
+With flex-direction: column we place them from left to right*/
+
+.categories__flexbox {
+    /* flex */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  
+}
+
+/* We edit the container that has inside the image and lists: we edit the size of the text, the width of the container
+and the position. We add space between the text and image and the border with padding and with margin we add space between the 
+products */
+/* We edit the text size and the width and we make them responsive*/
+.categories {
+
+    /* responsive */
+    width: 95%;
+
+    /* text */
+    font-size: 150%;
+
+    /* size */
+    max-width: 770px;
+
+    /* appearance */
+    border: 3px groove rgb(31, 37, 40);
+    box-shadow: 8px 8px 5px rgb(31, 37, 40);
+
+    /* position */
+    margin-bottom: 90px;
+    padding: 30px;
+  
+}
+
+/* We edit the header of the container using inheritance. We edit the text and add space below */
+.categories h2 {
+    /* text */
+    text-align: center;
+    font-weight: 200;
+    line-height: 50px;
+
+    /* position */
+    padding-bottom: 10px;
+}
+
+/* We edit the images of the rooms */
+/* We change the width and make it responsive */
+.categories img {
+
+    /* position */
+    margin-bottom: 20px;
+
+    /* border */
+    border-radius: 10px;
+
+    /* responsive */
+    width: 100%;
+}
+
+/* We add shadow when we hover over the images using inheritance*/
+.categories img:hover {
+    /* appearance */
+    box-shadow: 8px 8px 5px rgb(31, 37, 40);
+}
+
+
+/* We remove the bullets and add space below using inheritance*/
+.categories li {
+    /* appearance */
+    list-style: none;
+}
+
+
+/* We remove the underline from the links and change the color using inheritance*/
+.categories li a{
+    color:#ccc;
+    text-decoration: none;
+}
+
+/* We change the color of the text and add shadow once we hover over it */
+.categories li a:hover {
+    color: rgba(204, 204, 204, 0.81);
+    text-shadow: 2px 2px 2px rgb(31, 37, 40);
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Products Furniture Sub-categories  */
+
+
+/* We have 2 cells in the grid : product__list__header and product__list.*/
+.sub__categories {
+
+    /* grid */
+    display: grid;
+    grid-template-areas:
+        "product__list__header"
+        "product__list";
+    
+    /* text */
+    text-align: center;
+    font-size: 150%;
+}
+
+/* we edit the name of the category of the productusing inheritance: we add the text and add space below with margin
+and padding */
+.sub__categories h1 {
+
+    /* text */
+    font-size: 28px;
+    font-weight: 500;
+    text-decoration: underline overline;
+
+
+    /* appearance */
+    line-height: 70px;
+    border-bottom: 1px solid #ccc;
+
+    /* position */
+    margin-bottom: 50px;
+    padding-bottom: 3px;
+  
+}
+
+/* We use a flex container to place inside all the cards of each room. 
+We center the items across the line with justify-content;
+With flex-wrap: wrap we place the items into multiple lines
+With flex-direction: column we place them from left to right*/
+.sub-categories__products {
+    /* flex */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+
+/* We remove the bullets from the lists using inheritance and add space below*/
+.sub-categories__products li {
+    /* appearance */
+    list-style: none; 
+
+    /* position */
+    margin: 30px;
+}
+
+
+/* We edit the links : change color, remove underlines, add space below */
+.sub-categories__products li article a {
+    /* text */
+    color: #ccc;
+    text-decoration: none;
+
+    /* position */
+    padding-bottom: 100px;
+}
+
+/* We edit the product images */
+.sub-categories__products li article a img {
+
+    /* size */
+    height: 300px;
+    width: 300px;
+
+    /* position */
+    margin-bottom: 10px;
+
+    /* border */
+    border-radius: 10px;
+}
+
+/* We add shadow when we hover over the image */
+.sub-categories__products li article a img:hover {
+
+    /* appearance */
+    box-shadow: 8px 8px 5px rgb(31, 37, 40);
+}
+
+/* We add shadow when we hover over the text */
+.sub-categories__products li article a:hover {
+    /* text */
+    text-shadow: 2px 2px 2px rgb(31, 37, 40);
+}
+
+/* We edit the name of the products : edit text and space below  */
+.sub-categories__products li article a h3 {
+
+    /* text */
+    font-weight: bold;
+    font-size: 88%;
+
+    /* position */
+    margin-bottom: 4px;
+}
+
+/* We edit the product code: text size, text color, text weight and space below */
+.product__code {
+
+    /* text */
+    font-size: 60%;
+    color: rgba(204, 204, 204, 0.5);
+    font-weight: lighter;
+
+    /* position */
+    margin-bottom: 2px;
+}
+
+/* We edit the space between the cards of products */
+.sub-categories__products li article {
+
+    /* postion */
+    padding-bottom: 50px;
+}
+
+/* We edit the products description */
+.product__description{
+
+    /* text */
+    font-size: 60%;
+    color: rgba(204, 204, 204, 0.8);
+
+    /* position */
+    margin-bottom: 15px;
+}
+
+/* We edit the product's price : change text size and weight */
+.product__price{
+
+    /* text */
+    font-size: 90%;
+    font-weight: 500;
+}
+
+
+/* We edit the product's ratings : change text size and weight */
+.product__rating{
+    /* text */
+    font-size: 60%;
+    color: rgba(204, 204, 204, 0.8);
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Products' Pages */
+
+/*Editing product's code,price and description : adding a border with it's color, the space between its self and product details,
+the space between its self and the white bar and the space between itself and the left side of the screen
+This is the container of product__name and top__info__product. We use flex resulting to place the product photo next to its price, code and 
+description */
+/* We change margin-left and margin-right and make them responsive */
+.top__info__product {
+
+    /* position */
+    margin-bottom: 40px; 
+    padding-bottom: 25px; 
+
+    /* appearance */
+    border-bottom: 1px solid #ccc;
+
+    /* flex*/
+    display:flex;
+    justify-content:center;
+    
+    /* responsive */
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+/* Circling the edges of the image */
+/* We add overflow hidden to make the image responsive */
+.top__info__product img {
+
+    /* border */
+    border-radius: 10px;
+
+    /* responsive */
+    overflow: hidden;
+}
+
+/*Editing product's code,price and description : adding a border with it's color, */
+/* We make mirgin left responsive */
+.important__info {
+    /* appearance */
+    list-style: none;
+    
+    /* responsive */
+    margin-left: 10%;
+}
+
+/* We edit the name of every product : we're placing it in center, adding a line above it, making the first letter capital, 
+changing the font size and space between the letters. We also add space below it. */
+.product__name {
+
+    /* text */
+    font-weight: 700;
+    font-size: 35px;
+    letter-spacing: 5px;
+    text-transform: capitalize;
+    line-height: 28px;
+    text-decoration: overline; 
+
+    /* position */
+     padding: 20px 0; 
+     
+ }
+
+/* We edit the code of every product: we change the color,size, weight,color and add space below it */
+.product__page__code {
+
+    /* text */
+    color: rgba(204, 204, 204, 0.7);
+    font-size: 110%;
+    font-weight: lighter;
+
+    /* position */
+    margin-bottom: 10px;
+}
+
+/* We edit the code of every product: we change the size, weight,color and add space below it */
+.product__page__price {
+    /* text */
+    font-size: 200%;
+    font-weight: 900;
+
+    /* position */
+    margin-bottom: 15px;
+}
+
+/* We edit the description of the product : circling the edges of the border, adding how big we want it to be and
+lastly adding space below it and adding padding inside the box */
+.product__page__description {
+    /* border */
+   border-style: double;
+   border-radius: 10px;
+
+   /* position */
+   padding: 10px;
+   max-width: 400px;
+   margin-bottom: 30px;
+   
+}
+
+/* We add a backround color once we hover over the description */
+.product__page__description:hover{
+
+    /* transition */
+    transition: all 0.3s ease 0s;
+
+    /* appearance */
+    background-color: #ced9db0c;
+}
+ 
+/* Editing the description header of the description box using inheritance : underlining it, changing how bold we want it and adding space
+below itself */
+.product__page__description h2 {
+    /* text */
+    text-decoration: underline;
+    font-weight: 400;
+
+    /* position */
+    margin-bottom: 5px;
+    
+}
+
+/* We edit the box that we have about the quantity of products. We edit it's width and height, add space above and below it 
+and changing the backgound color to white */
+.form_quantity input[type=number]{
+
+    /* size */
+    width:60px;
+    height:25px;
+
+    /* position */
+    margin-bottom: 50px;
+    margin-right: 12px;
+
+    /* appearance */
+    background-color:  rgba(255, 255, 255, 0.658);
+}
+
+/* We edit the button that says buy. We change its text size, weight and color, the size of it, 
+we circle the border and also add the style and color of the border that we want, we add space on the left
+and edit the background color */
+.form_quantity input[type=submit]{
+
+    /* text */
+    font-weight: 900;
+    font-size: 105%;
+    color: rgb(56, 84, 44);
+
+    /* size */
+    width:100px;
+    height:30px;
+
+    /* border */
+    border-radius: 20px;
+    border: 2px outset rgba(241, 236, 236, 0.393);
+    
+    /* position */
+    margin-left: 8px;
+
+    /* appearance */
+    background-color: rgba(255, 255, 255, 0.658);
+
+}
+
+/* We change the cursor style when we hover over the button */
+.form_quantity input[type=submit]:hover{
+    /* cursor */
+    cursor: pointer;
+}
+
+
+/* We edit the link "View similar products" using inheritacne : We add the backround color, we circle the edges of the border, 
+we add space between the letters inside the box and the box and we edit the text of the link */
+.important__info li a{
+    /* appearance */
+    background-color: rgba(150, 137, 137, 0.5);
+
+    /* border */
+    border-radius: 5px;
+   
+    
+    /* position */
+    padding: 13px;
+    
+    /* text */
+    text-decoration: none;
+    color:#ccc;
+}
+
+/* We add add shadow and change the color of the letters and backround when we hover over the box. We also add 
+a transition of 0.3 as we want the changes to happen 0.3 secons after we hover over it. */
+.important__info li a:hover{
+
+    /* appearance */
+    opacity: 0.5;
+    box-shadow: 8px 8px 5px #24252a ;
+
+    /* text */
+    color: rgba(204, 204, 204, 0.747);
+
+    /* transition */
+    transition: all 0.3s ease 0s;
+}
+
+
+/* We use a flex container to place inside the all the description details of the product. We center the items along the line
+and in the cross-axis
+With align-items: center we align them vertically and with flex-direction: column; we place each itam beneath the other */
+.product__info {
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+/* We add a border in "product details" and "specifications", edit the size of the boxes, add space below and add space between
+the letters and the border */
+/* We make width, margin, margin-bottom responsive */
+.product__info section {
+
+    /* border */
+    border-style: double;
+    border-radius: 10px;
+
+    /* position */
+    padding: 10px;
+    
+    /* responsive */
+    width: 90%;
+    margin: 0 5% 50px;
+    margin-bottom: 50px;
+    
+}
+
+/* We edit every h2 element inside "product details" and "specifications" using inheritance : we underline them, change the letters'
+size, weight, space and add space below the text */
+.product__info section h2 {
+
+    /* text */
+    text-decoration: underline; 
+    font-weight: 800;
+    font-size: 170%;
+    letter-spacing: 1px;
+
+
+    /* position */
+    padding-bottom: 12px;
+
+}
+
+/* We edit every h3 element inside "product details" and "specifications" using inheritance : we underline them, change the letters'
+ weight and add space above and below the text*/
+ .product__info section h3 {
+    /* text */
+    text-decoration: underline; 
+    font-weight: 700;
+
+    /* position */
+    padding-bottom: 5px;
+    padding-top: 15px;
+    
+}
+/* We edit every h4 element inside "product details" and "specifications" using inheritance : we add space above and below the text*/
+.product__info section h4 {
+    /* position */
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+
+/* We edit every p element inside "product details" and "specifications" using inheritance : we change the letters weight, meaning how bold 
+they are*/
+.product__info section p {
+    /* text */
+    font-weight: 400;
+}
+
+
+/* We remove the bullets of the lists we have inside "product details" and "specifications" using inheritance*/
+.product__info section li {
+    /* appearance */
+    list-style: none;
+}
+
+/* We add space to the left */
+.product__info__photos {
+    margin-left: 2vw;
+}
+
+/* We remove the bullets from the list */
+.product__info__photos li {
+    list-style: none;
+}
+
+/* We add space below "More Photos" */
+.product__info__photos h2{
+
+    /* position */
+    padding-bottom: 10px;
+
+    /* text */
+    text-align: center;
+}
+
+/* We place the images in a flexbox. With justify-content: center we center them
+ */
+.product__info__photos__flexbox{
+    
+    /* flex*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+/* We add space be beneath the images and edit the height of the pictures */
+.product__info__photos__flexbox img{
+
+    /* position */
+    margin: 10px;
+
+    /* size */
+    height: 355px;
+}
+
+
+/* Ratings */
+
+/* We use a flex container to place inside the overall ratings and comments of the consumers.
+ We center the items along the line and in the cross-axis and we place each item beneath the other*/
+ .product__ratings {
+
+    /* flex */
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+    /* appearance */
+    border-top: 1px solid #ccc;
+
+    /* position */
+    padding-top: 20px;
+    margin: 40px 25px;
+}
+
+
+/*We edit the Ratings title : add an underline, add space, change the weight, 
+font size and the space between the letters */
+.product__ratings h2 {
+
+    /* text */
+    text-decoration: underline;
+    font-weight: 800;
+    font-size: 170%;
+    letter-spacing: 1px;
+    text-align: center;
+
+    /* position */
+    padding-bottom: 14px;
+    
+}
+
+/* Ratings Stars */
+
+/*We change the color of the stars */
+.checked {
+    /* appearance */
+    color: orange;
+}
+
+/*We edit the "Overal Rating" with it's stars : placing it in center, changing the width, max width, the border,
+ and the space of itself and the border with padding" */
+ .overall__rating { 
+
+    /* size */
+    width: 550px;
+    max-width: 200px;
+
+    /* text */
+    text-align: center;
+
+    /* position */
+    padding-bottom: 25px;
+
+    /* border */
+    border-radius: 8px;
+    border-style:inset;
+    
+}
+
+/*We edit the "Overal Rating" using inheritance: placing an uderline below the text, changing the space of itself and the border
+and adding space above it and below it*/
+.overall__rating h3 {
+    /* text */
+    text-decoration: underline;
+
+    /* position */
+    padding-bottom: 6px;
+    margin-top: 18px;
+}
+
+
+/*We edit the number of the rating above "Overal Rating" using inheritance*/
+.overall__rating p {
+    /* text */
+    font-size: 115%;
+}
+
+/* We edit the size of the stars */
+.overall__rating span {
+    font-size: 25px;
+}
+
+/* Editing the "User Ratings" using inheritance: we underline it, change the size of the letters, placing it in the center,
+ adding space above it and below it */
+ .product__user__ratings h4 {
+
+    /* text */
+    text-decoration: underline;
+    font-size: 108%;
+    text-align: center;
+    
+
+    /* position */
+    padding-bottom: 5px;
+    margin-top: 50px;
+}
+
+/* Editing the usernames using inheritance: changing how bold they are, their size and space above them */
+.product__user__ratings h5 {
+    /* text */
+    font-weight: normal;
+    font-size: 15px;
+
+    /* position */
+    padding-bottom: 5px;
+}
+
+/*Editing the space between the profile picture and the name using inheritance*/
+.product__user__ratings h5 i {
+    /* position */
+    padding-right: 6px;
+}
+
+/*Editing the size of the stars of users' ratings using inheritance*/
+.product__user__ratings h6 {
+    /* text */
+    font-size: 15px;
+
+    /* position */
+    padding-bottom: 5px;
+}
+
+/* Editing the size of the users' comments using inheritance*/
+.product__user__ratings p {
+    /* text */
+    font-size: 95%;
+}
+
+/* We create a box that contains the comments of the costumers: we edit the size,border, space inside
+the box with padding and space below with margin  */
+.user_rating{
+
+    /* appearance */
+    background-color: rgba(150, 137, 137, 0.5);
+
+    /* border */
+    border-radius: 5px;
+
+    /* position */
+    margin: 12px;
+    padding: 12px;
+
+    /* size */
+    max-width: 900px;  
+}
+
+/* Placing the "Visit the constructor's page" on the right and adding space*/
+.product__info__constructor {
+    /* text */
+    text-align: right;
+
+    /* position */
+    padding: 10px;
+}
+
+/* Editing the color of the link in "Visit the constructor's page using inheritance"*/
+.product__info__constructor a {
+    /* text */
+    color: #5caabe;
+}
+
+/* Changing the coor of the link when we hover over it*/
+.product__info__constructor a:hover{
+    /* text */
+    color: #0088a9;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* About us */
+
+/* The introduction_container contains the text and picture on the begging of the page */
+.introduction_container{
+    position: relative;
+}
+
+/* Here we edit the text within the image : we center it, we edit the letters' font, we align them and edit the width.
+We use the position: absolute; in order to place the text over the image*/
+/* We make the font-size, margin-left, width responsive */
+
+.introduction{
+    /* position */
+    position: absolute;
+    top:50px;
+
+    /* text */
+    text-align: justify;
+    
+    /* responsive */
+    font-size: 2vw;
+    margin-left: 5%;
+    width:90%;
+}
+
+/* We lower the opacity of the image and edit the width */
+/* We make make the width and margin responsive */
+.about_us_intro_picture{
+
+    /* appearance */
+    opacity: 0.2;
+
+    /* responsive */
+    width: 100%;
+    margin-bottom: 6%;
+}
+
+/* We edit "Who we are" : we align it and add space below*/
+.introduction h2{
+    /* text */
+    text-align: center;
+
+    /* position */
+    margin-bottom: 20px;
+}
+
+/* We use a flex container to place inside the cards "Our Purpose" and "Our Vision" ans we align them in the 
+center along the line*/
+.about_us_goals{
+    /* flex */
+    display: flex;
+    justify-content: center;
+
+    /* responsive */
+    width: 100%;
+}
+
+/* We edit the cards "Our Purpose" and "Our Vision" : we edit their size, add space inside (betwen the letters and the box) with 
+padding and outside the box with margin, we align the text, edit the size of the text, circle the border, the color and the style and lastly 
+ we add a  background color*/
+ .card-about_us{
+
+    /*appearance*/
+    background-color: rgba(8, 25, 36, 0.162);
+
+    /* position */
+    padding: 20px;
+    margin-bottom: 90px;
+
+    /* text */
+    font-size: 25px;
+    text-align: justify;
+
+    /* border */
+    border-style: double;
+    border-radius: 10px;
+    border-color: #ffffff76;
+    
+
+    /* responsive */
+    height:auto;
+    max-width: 550px;
+    width: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/* We edit the headers "Our Purpose" and "Our Vision" : we place them in center, underline them and add space below them*/
+.card-titles{
+     /* text */
+     text-align: center;
+     text-decoration: underline;
+ 
+     /* position */
+     margin-bottom: 15px;
+}
+
+/* We edit the r=text within "Our Purpose" and "Our Vision" : we add space below the cards */
+.card-about_us h5{
+    /* position */
+    margin-bottom: 8px;
+}
+
+/* We use a flex container to place inside the biographies. We center the items along the line*/
+/* We make the width responsive */
+.bio-cards{
+    /* position */
+    display: flex;
+    justify-content: center;
+
+    /* responsive */
+    width:100%;
+}
+
+/* We edit the cards that contain the biography : we edit the  background color, the size of the box, we circle the border, 
+we edit the text's size and placement and lastly we add space balow the text and below the box */
+/* We make */
+.bio-card{
+
+    /*appearance*/
+    background-color:  rgba(8, 25, 36, 0.162);
+    
+    /* border */
+    border-radius: 10px;
+    border-style:ridge;
+
+    /* position */
+    padding: 15px;
+
+    /* text */
+    font-size: 16px;
+    text-align: justify;
+
+    /* responsive */
+    height:auto;
+    width: 80%;
+    max-width: 400px;
+    margin:3%;
+}
+
+/* We edit the images position and place them in the center of the bio box*/
+/* We change the left and make it responsive */
+.bio-card img{
+
+    /* position */
+    position: relative;
+    top:-80px;
+
+    /* responsive */
+    left:27%;
+}
+
+/* We edit the names inside the bio cards : we center them, change the weight of the text and place them under the image */
+.bio-card h4{
+    /* text */
+    text-align: center;
+    font-weight: bolder;
+
+    /* position */
+    position: relative;
+    top: -50px;
+}
+
+/* We edit our professions inside the bio cards : we center them, change the weight of the text and place them under the image*/
+.bio-card h5{
+    /* text */
+    text-align: center;
+    font-weight: bold;
+
+    /* position */
+    position: relative;
+    top: -45px;
+}
+
+/* We edit the text within the bio cards : we place it under the professions */
+.bio-card p{
+    /* position */
+    position: relative;
+    top: -25px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Contact us */
+/* We edit the image : we change the width of the image*/
+/* We change the width to 100% and make it responsive */
+.contact_us_container img{
+    /* responsive */
+    width:100%;
+}
+
+/* Inside the container we have the image, the header and the two boxes*/
+/* We change the width and make it responsive */
+.contact_us_container{
+    position:relative;
+
+    /* responsive */
+    width:100%;
+}
+
+/* We edit the color and size of the letters and place it over the image with position absolute */
+/* We change the font-size, top and margin and make them responsive */
+.contact_us_container h1 {
+
+    /* position */
+    position: absolute;
+    left: 30px;
+
+    /* text */
+    color: #ccc;
+
+    /* responsive */
+    font-size: 3vw;
+    top:5%;
+    margin-bottom: 5%;
+}
+
+/* We edit the color and size of the letters and place it over the image with position absolute */
+/* We make the font size and top responsive */
+.contact_us_container h2 {
+
+    /* position */
+    position: absolute;
+    left: 30px;
+    margin-top: 20px;
+
+    /* text */
+    color:  #ccc;
+    
+    /* responsive */
+    font-size: 2vw;
+    top:10%;
+}
+
+/* we remove the bullets from the list */
+.form li{
+    list-style: none;
+}
+
+/* We use position:absolute to place the card over the image and with top, left, margin we place it where we want it.
+We use padding to add space between the text and border and we edit the size, border and text of the box*/
+/* We make the top, width, left, height, font size responsive and add minimum height*/
+.contact_us_card1{
+
+    /* position */
+    position:absolute;
+    padding: 50px;
+
+    
+    /* appearance */
+    background-color:   #333333;
+    
+    /* border */
+    border-radius: 10px;
+    border-style: double;
+
+    /* text */
+    text-align: center;
+    
+    /* responsive */
+    top:75%;
+    width:40%;
+    left:5%;
+    height:35%;
+    font-size: 2vw;
+
+    /* size */
+    min-height:200px;
+    
+}
+
+/* We use position:absolute to place the card over the image and with top, left, margin we place it where we want it.
+We use padding to add space between the text and border and we edit the size, border and text of the box*/
+/* We make the top, width, left, height, font size responsive and add minimum height*/
+.contact_us_card2{
+
+     /* position */
+    position:absolute;
+    padding: 30px;
+
+    /* appearance */
+    background-color:  #333333;
+    
+    
+    /* border */
+    border-radius: 10px;
+    border-style: double;
+
+
+    /* text */
+    text-align: center;
+
+    
+
+    /* responsive */
+    top:75%;
+    width:40%;
+    right:5%;
+    height:35%;
+    min-height:200px;
+    font-size: 2vw;
+}
+
+/* We add space above the form and place it in center */
+.contact_us_form{
+
+    /* position */
+    padding-top: 200px;
+    
+    /* text */
+    text-align: center;
+}
+
+/* We edit the for : we edit the width, we center it, we add space between the form and other elements,
+ we size up the inputs with padding and edit the border.*/
+ .form input{
+    /* size  */
+    width: 500px;
+
+    /* position */
+    padding: 10px 10px;
+    margin: 5px;
+    
+
+    /* border */
+    border-radius: 10px;
+    border: 3px solid rgb(73, 94, 150);  
+}
+
+/* We center "Contact costumer support for technical problems:" using inheritance */
+.contact_us_form h3{
+    /* text */
+    text-align: center;
+}
+
+/* We change the color of the telephone link */
+.contact_us_card1 p a{
+    /* text */
+    color:#ccc;
+}
+
+/* We change the color of the telephone linkonce we hover over it */
+.contact_us_card1 p a:hover{
+    /* text */
+    color:#5caabe;
+}
+
+/*  We use display: inline-block in order to place evenly the inputs. We also edit the placement of the labels with width. */
+.contact_us_form label{
+
+    /* position */
+    display: inline-block;
+
+    /* size */
+    width: 150px;
+}
+
+/* We add space above and below the form */
+.form{
+    /* position */
+    margin-bottom:30px;
+    margin-top: 30px;
+}
+
+/* We add space in between the elements */
+.form li{
+    /* position */
+    margin:10px;
+}
+
+/* We edit the button submit : we edit the size, text and add space below and on the left */
+.form input[type=submit]{
+
+    /* position */
+    margin-top: 25px;
+    margin-left:120px;
+    
+    /* size */
+    width:250px;
+
+    /* border */
+    border: none;
+
+    /* text */
+    color:rgb(73, 94, 150);
+    font-weight: 900;
+    
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Exercise 5 */
+/* User Registration */
+
+.from__sign__in {
+    text-align: right;
+    font-size:1.2vw;
+}
+
+.from__sign__in a {
+    color: #5caabe;
+}
+
+.from__sign__in a:hover {
+    color: #0088a9;
+}
+
+.user_registration_form {
+    /* text */
+    color: #ccc;
+    font-size:1.2vw;
+}
+
+.user_registration_form input{
+    font-size:1.2vw;
+}
+
+.user_registration_form h2 {
+    margin-bottom: 1%;
+    text-align: center;
+    text-decoration: underline overline;
+}
+
+.user_registration_form p {
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.user_registration_form details {
+    margin: 1.5%;
+}
+
+.form__personal__info, .form__delivery__address {
+    /* position */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* appearance */
+    background-color: #5fdfff0f;
+    padding: 1%;
+}
+
+.form__personal__info label, .form__delivery__address label { 
+    margin-bottom: 0.5%;
+    text-align: right; 
+}
+
+.form__personal__info input, .form__delivery__address input {
+    margin-bottom: 1.5%;
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px inset rgb(251, 251, 251) ;
+}
+
+.form__method__of__payment {
+    background-color: #5fdfff0f;
+}
+.form__payment__info__send__address {
+   /* appearance */
+   background-color: #5fdfff0f;
+}
+
+.form__payment__info__send__address fieldset {
+    margin: 1%;
+}
+
+.form__selected__payment label {
+    margin: 1%;
+}
+
+.form__payment,
+.form__selected__payment {
+    display: none;
+    opacity: 0;
+}
+
+.form__payment:checked+.form__selected__payment {
+    display: block;
+    opacity: 1;
+    /* position */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__payment:checked+.form__selected__payment input {
+    margin-bottom: 1.5%;
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px inset rgb(251, 251, 251) ;
+}
+
+.form__payment__radio {
+    display: inline-block;
+    border: 2px inset grey;
+    border-radius: 6px;
+    padding: 2px 3px;
+    cursor: pointer
+}
+
+.form__payment__radio:hover {
+    border-color: #0088a9;
+    color: #5caabe;
+    transition: .75s ease;
+}
+
+.card_expireMM, .card_expireYY {
+    height: 30px;
+    width: 30%;
+    margin-bottom: 10px;
+}
+
+.label_card_expireYY {
+    display: none;
+}
+
+.form__newsletter {
+    /* position */
+    display:flex;
+    flex-direction: row;
+
+    /* appearance */
+    background-color: #5fdfff0f;
+    padding: 1%;
+}
+
+.form__newsletter label img {
+    width:20%;
+    padding: 3%;
+}  
+
+.questionare_form {
+    display:flex;
+    flex-direction: column;
+    padding: 2% 1%;
+
+    /* appearance */
+    background-color: #5fdfff0f;
+}
+
+.questionare_form fieldset {
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+
+    margin-bottom: 1%;
+    padding: 1%;
+}
+
+/* javascript messages */
+.age_error, .pwrd_error, .photo_error {
+    color: red;
+}
+
+.photo_correct {
+    color: rgb(12, 92, 12);
+}
+
+.no_photo {
+    color: #9fa6cc;
+}
+
+
+
+
+
+
+
+/* *********************************************************************************************************************** */
+
+/* Tablet Screen */
+@media screen and (max-width: 760px) and (min-width: 321px) {
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Body */
+
+
+
+    /* Editing the backgroung color of the webpage*/
+    /* We have 2 cells in the grid : grid__header, grid__main and grid__footer and each one of the cells has a width of 1fr.
+    By using fr we make our website responsive */
+    body {
+        font-size: 90%;
+        background-color: #333333;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "grid__header"
+            "grid__main"
+            "grid__footer";
+    }
+
+   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Header */
+
+    /* We have added justify-content: center, align-items: center and we changed the height*/
+    header {
+        /* grid */
+        grid-area: grid__header;
+
+        /* flex */
+        display: flex;
+        flex-direction: column;
+    
+        /* position */
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        
+
+        /* responsive */
+        width: 100%;
+        height: 8em;
+        
+        /* appearance */
+        background-color: #24252a;
+        
+        /* z-index */
+        z-index: 1;
+    }
+
+    /* We display the logo as a block, we added space left and right and below */
+    .logo {
+        /* position */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2px;
+        
+    }
+
+    /* We changd the size of the image*/
+    .logo img {
+        /* size */
+        width: 110px;
+    }
+
+    /* We change the position and the size */
+    .search__bar { 
+
+        /* size */
+        width: 120px;
+
+        /* position */
+        margin-bottom: 4px;
+    }
+    
+
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Main */
+
+    /* Editing the font and color of the letters, as the space of the website
+    and the header  */
+    main {
+        /* grid */
+        grid-area: grid__main;
+        
+
+        /* text */
+        color: #ccc;
+        font-family: sans-serif;
+
+        /* position */
+        margin-top: 7em;
+    }
+
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Footer */
+
+    /* Editing the footer's website: adding the backround color, the font and color of the letters, the space bettween the box and the letters 
+    the width and the height*/
+    footer {
+        /* grid */
+        grid-area: grid__footer;
+    }
+
+    /* We add flex direction column so each item can be displayed in a column  */
+    .footer__top {
+        flex-direction: column;
+    }
+
+    /*We change the font size*/
+    .footer__top h3 {
+        font-size: 4vw;
+    }
+
+    /* We change the size of the letters */
+    .footer__top p {
+        font-size: 3vw;
+    }
+
+    /*We make the margin responsive*/
+    .footer__contact__info {
+        margin: 0 3%;
+
+    }
+    /* We make the margin responsive*/
+    .footer__socials {
+        margin: 0 3%;
+    }
+
+    /* We change the font size */
+    .footer__contact__info li a {
+        font-size: 3vw;
+    }
+
+    /* We change the font size*/
+    .footer__contact__info li a:hover {
+        font-size: 3vw;
+    }
+
+    /* We make margin responsive */
+    .footer__social__links li {
+        margin: 0 2%;
+    }
+
+    /* We change the width */
+    .footer__socials li img {
+        width: 60%;
+    }
+
+    /* We change the font size */
+    .footer__bottom h6 {
+        font-size: 3vw;
+    }
+
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Index */
+
+    /* We have 3 cells in the grid : grid__index__banner, grid__index__intro and grid__index__offers and each one of the cells has a width of 1fr.
+    The grid becomes responsive cause we use fr*/
+    .index__content {
+        /* grid */
+        display: grid;
+        grid-template-columns: 1fr; /*responsive*/
+        grid-template-areas:
+            "grid__index__banner"
+            "grid__index__intro"
+            "grid__index__offers";
+    }
+    
+    /* We add the padding and we make width and margin responsive */
+    .index__banner {
+        /* position */
+        padding-top: 15px;
+
+        /* grid */
+        grid-area: grid__index__banner;
+
+        /* responsive */
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    .index_info_container{
+        
+        /* grid*/
+        grid-area: grid__index__intro;
+    }
+
+    /* We change the width, height, margin, text amd margin */
+    .index__info {
+
+        /* responsive */
+        width:90%;
+        height: auto;
+        margin-left: 0.1%;
+        font-size: 3vw;
+        margin-top: 50px;
+    }
+
+
+
+    .index__offers {
+        /* grid */
+        grid-area: grid__index__offers;
+    }
+
+    
+    /* We change the font size */
+    .index__set__offer {
+        font-size: 130%;
+    }
+
+    /* We make margin responsive */
+    .index__christmas__offer li, .index__set__offer li {
+        margin: 1%;
+    }
+
+    /* We change the width, add max-width and height:auto */
+    .index__christmas__offer li article a img, .index__set__offer li article a img{
+       /* responsive */
+        width: 90%;
+
+        /* size */
+        max-width: 320px;
+        height: auto;
+    }
+
+   
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Products Categories */
+
+    /* We change the padding and the margin and make the font size responsive */
+    .categories__header {
+        /* position */
+        padding-top: 30px;
+        margin-bottom: 30px;
+        /* text */
+        text-decoration: underline overline;
+        
+        /* responsive */
+        font-size: 8vw;
+    }
+
+    /* We add max width and make the width, padding and font-size responsive  */
+    .categories {
+        /* responsive */
+        max-width: 770px;
+        width: 95%;
+        font-size: 5vw;
+        padding: 8%;
+    }
+
+    /* We make the height and the width responsive */
+    .categories img {
+        /* responsive */
+        height: auto;
+        width: 100%;
+    }
+
+    /* We make the font size responsive */
+    .categories li a {
+        font-size: 4vw;
+    }
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Products Furniture Sub-categories  */
+
+    /* We have 2 cells in the grid : product__list__header and product__list.*/
+    .sub__categories {
+        /* grid */
+        display: grid;
+        grid-template-areas:
+            "product__list__header"
+            "product__list";
+        
+    }
+
+    /* We change the font size */
+    .sub__categories h1 {
+        font-size: 175%;
+    }
+
+
+   
+
+    /* We add max-width and make heught auto */
+    .sub-categories__products li article a img {
+        height: auto;
+        max-width: 280px;
+    }
+    
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Products' Pages */
+
+    /* We center the colums and change and make the text responsive */
+    .top__info__product {
+
+        /* flex */
+        flex-direction: column;
+        align-items: center; 
+        
+        /* responsive */
+        margin-left: 0%;
+        margin-right: 0%;
+        font-size: 2.5vw;
+
+
+        /* position */
+        margin-top: 40px;
+        
+    }
+
+    /* We add max width and make width responsive */
+    .top__info__product img {
+
+        /* responsive */
+        width: 95%;
+        max-width: 550px;
+    }
+
+    /* We change the position and align them */
+    .important__info {
+        
+        /* position */
+        margin-left: 0;
+        text-align: center;
+    }
+
+    /* We add responsive pading and font size */
+    .product__name {
+
+        /* responsive */
+        padding: 10% 0;  
+        font-size: 8.5vw;
+    }
+    
+    /* We add responsive margin and width */
+    .product__page__description {
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    /* We add responsive height and width */
+    .form_quantity input[type=number]{
+        height: 25%;
+        width: 25%;
+    }
+    
+    /* We make the width responsive */
+    .form_quantity input[type=submit]{
+        width: 27%;
+    }
+
+    /* We make the font size responsive */
+    .important__info li a{
+        font-size: 3vw;
+    }
+    
+    /* We make the font size responsive */
+    .product__info section {
+        font-size: 3vw;
+    }
+    
+    /* We make the width responsive and change the height */
+    .product__info__photos__flexbox img{
+        height: auto;
+        width: 90%;
+    }
+    
+    /* We make the text responsive */
+    .product__ratings {
+        /* text */
+        font-size: 3vw;
+    }
+    
+    /* We add a max width and make the width responsive */
+    .overall__rating {
+        /* size */
+        width: 60%;
+        max-width: 200px;
+    }
+
+    /* We make the margin and width responsive */
+    .user_rating {
+        /* position */
+        margin-top: 12px;
+        margin-bottom: 12px;
+
+        /* responsive */
+        width: 98%; 
+        margin-left: 1%;
+    }
+    
+    /* We make the text and padding responsive */
+    .product__info__constructor {
+        /* position */
+        padding: 1vw;
+
+        /* text */
+        font-size: 3vw;
+    }
+
+
+    
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* About us */
+    
+    /* We make the space responsive */
+    .introduction h2{
+        margin-bottom: 3%;
+    }
+
+    /* We chage the posisions and make the text responsive */
+    .introduction{
+        /* responsive */
+        font-size: 3vw;
+        width:90%;
+        margin-top: 2%;
+        margin-bottom: 0%;
+    }
+
+    /* We change the position and make the width responsive */
+    .about_us_intro_picture{
+        /* position */
+        margin-bottom: 10%;
+
+        /* size */
+        width: 100%;
+    }
+
+    /* We add flex wrap and make the width responsive */
+    .about_us_goals{
+        flex-wrap: wrap;
+
+        /* responsive */
+        width: 100%;
+    }
+
+    /* We make all the above responsive */
+    .card-about_us{
+        /* responsive */
+        height:auto;
+        width: 100%;
+        margin-left: 6%;
+        margin-right: 6%;
+        font-size: 3vw;
+        margin-bottom: 5%;
+    }
+
+    /* We add flex wrap and make the width and margin responsive */
+    .bio-cards{
+        flex-wrap: wrap;
+        
+        /* responsive */
+        width:100%;
+        margin-top: 20%;
+    }
+
+    /* We change everything beneath to responsive */
+    .bio-card{
+        /* responsive */
+        height:auto;
+        width: 80%;
+        margin-bottom:20%;
+        font-size: 3vw;
+    }
+
+
+    /* We change everything beneath to responsive */
+    .bio-card img{
+        /* responsive */
+        left:27%;
+        width: 40%;
+    }
+
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Contact us */
+
+    /* We make the image responsive */
+    .contact_us_container img{
+        /* responsive */
+        width:100%;
+    }
+
+    /* We change everything beneath to responsive */
+    .contact_us_container h1 {
+        /* responsive */
+        font-size: 4vw;
+        top:11%;
+        left: 3%;
+        
+    }
+    /* We change everything beneath to responsive */
+    .contact_us_container h2 {
+        /* responsive */
+        font-size: 3vw;
+        top:15%;
+        left: 3%;
+    }
+
+    /* We change everything beneath to responsive */
+    .contact_us_card1{
+        /* responsive */
+        top:75%;
+        width:35%;
+        left:5%;
+        height:40%;
+        min-height:60%;
+        font-size: 3vw;
+        padding: 5%;
+
+    }
+
+    /* We change everything beneath to responsive */
+    .contact_us_card2{
+        /* responsive */
+        top:75%;
+        width:35%;
+        right:5%;
+        height:40%;
+        min-height:60%;
+        font-size: 3vw;
+        padding: 3%;
+    }
+
+    /* We make the padding responsive */
+    .contact_us_form{
+        padding-top: 40%;
+    }
+
+/* We make the font-size responsive */
+    .contact_us_form h3{
+        font-size: 4vw;
+    }
+
+    /* We make the width of the input responsive */
+    .form input{
+        width:50%;
+    }
+
+    /* We make the form's width responsive */
+    .form{
+        width:100%
+    }
+
+    /* We make the font size responsive */
+    .form label{
+        font-size: 4vw;
+    }
+
+    /* We change everything beneath to responsive */
+    .form input[type=submit]{
+        width:40%;
+        left: 5%;
+        right: 5%;
+        margin-left: 0%;
+    }
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Exercise 5 */
+    /* User Registration */
+
+    .from__sign__in {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: right;
+        font-size:2.5vw;
+    }
+
+    .user_registration_form {
+        /* text */
+        color: #ccc;
+        font-size:3vw;
+    }
+
+    .user_registration_form input{
+        font-size:3vw;
+    }
+
+}
+
+
+
+/* *********************************************************************************************************************** */
+
+/* Phone Screen */
+@media screen and (max-width: 320px) {
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Body */
+
+    /* We have 3 cells in the grid : grid__header, grid__main and grid__footer and each one of the cells has a width of 1fr.
+    By using fr we make our website responsive */
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "grid__header"
+            "grid__main"
+            "grid__footer";
+    }
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Header */
+
+    /* We add flex-direction: column, make the width responsive and change the height */
+    header {
+        /* grid */
+        grid-area: grid__header;
+
+        /* responsive */
+        width: 100%;
+
+        /* flex */
+        flex-direction: column;
+
+        /* size */
+        height: 7em;
+    }
+
+    /* We want the logo to be displayed as a block element. We also add space with margin. */
+    .logo {
+        /* flex */
+        display: block;
+
+        /* position */
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2px;
+        
+    }
+
+    /* We change the width of the image */
+    .logo img {
+        /* size */
+        width: 90px;
+    }
+
+    /* We place evrything in center */
+    .nav__links {
+
+        /* position */
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    /* We change the size of the letters*/
+    .nav__links a {
+        font-size: 70%;
+    }
+
+    /*We change the padding*/
+    .nav__links li {
+        padding: 0px 10px;
+    }
+
+    /* We change the font size and the space above the search bar */
+    .search__bar { 
+
+        /* text */
+        font-size: 75%;
+
+        /* space */
+        margin-bottom: 2px;
+    }
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Main */
+
+    /* The grid__main is the second cell out of 3. We use grid-area to specify its location within the grid */
+    main {
+        /* grid */
+        grid-area: grid__main;
+    }
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Footer */
+
+    /* The grid__footer is the second cell out of 3. We use grid-area to specify its location within the grid */
+    footer {
+        /* grid */
+        grid-area: grid__footer;
+    }
+
+    /* the items are placed in a column */
+    .footer__top {
+
+        /* flex */
+        flex-direction: column;
+    }
+
+    /* We change the size of the letters */
+    .footer__top h3 {
+        font-size: 4vw;
+    }
+
+
+    /* We change the size of the letters */
+    .footer__top p {
+        font-size: 3vw;
+    }
+
+    /* We make the margin responsive*/
+    .footer__contact__info {
+        margin: 0 3%;
+
+    }
+    /* We make the margin responsive*/
+    .footer__socials {
+        margin: 0 3%;
+    }
+
+    .footer__contact__info li a {
+        font-size: 4vw;
+    }
+
+    .footer__contact__info li a:hover {
+        font-size: 4vw;
+    }
+
+    /* Editing the space between the images in the list */
+    .footer__social__links li {
+        margin: 0 2%;
+    }
+
+    /* We make the margin responsive and change the height*/
+    .footer__socials li img {
+        width: 70%;
+        height: auto;
+    }
+
+    /* We change the size of the letters */
+    .footer__bottom h6 {
+        font-size: 3vw;
+    }
+
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Index */
+
+    /* We have 3 cells in the grid : grid__index__banner, grid__index__intro and grid__index__offers and each one of the cells has a width of 1fr.
+    The grid becomes responsive cause we use fr*/
+    .index__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "grid__index__banner"
+            "grid__index__intro"
+            "grid__index__offers";
+    }
+   
+    /* We change the padding and make the width responsive */
+    .index__banner {
+
+        /* position */
+        padding-top: 15px;
+
+
+        /* responsive */
+        width: 100%;
+        
+        /* grid */
+        grid-area: grid__index__banner;
+
+    }
+
+    .index_info_container{
+        grid-area: grid__index__intro;
+    }
+
+
+    /* We make everything responsive and change the height */
+    .index__info {
+        
+        /* responsive */
+        width:90%;
+        margin-left: 0.1%;
+        font-size: 3.5vw;
+        margin-top: 22%;
+
+
+        /* size */
+        height: auto;
+         
+    }
+
+    
+    .index__offers {
+        /* grid */
+        grid-area: grid__index__offers;
+        
+    }
+
+    /* We change the size of the letters */
+    .index__christmas__offer{
+        /* text */
+        font-size: 130%;
+    }
+
+    /* We change the size of the letters */
+    .index__set__offer {
+        /* text */
+        font-size: 130%;
+    }
+
+    /* We make the margin responsive */
+    .index__christmas__offer li, .index__set__offer li {
+        /* position */
+        margin: 1%;
+    }
+
+    /* We change the height, margin, border and make the width responsive */
+    .index__christmas__offer li article a img, .index__set__offer li article a img{
+        width: 90%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    /* We change the position and the size of the letters */
+    .index__set__offer h2 {
+        font-size: 90%;
+        padding-bottom: 20px;
+    }
+
+    
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Products Categories */
+
+    /* We make the tedt responsive, edit it and also change the position of the header */
+    .categories__header {
+
+        /* text */
+        line-height: 70px;
+
+        /* position */
+        margin-bottom: 30px;
+        padding-top: 30px;
+
+        /* responsive */
+        font-size: 10vw;
+    }
+
+    /* We make everything responsive */
+    .categories {
+        /* responsive */
+        max-width: 770px;
+        width: 95%;
+        font-size: 5.5vw;
+        padding: 8%;
+    }
+
+    /* We make the width responsive */
+    .categories img {
+        /* responsive */
+        height: auto;
+        width: 100%;
+    }
+
+    /* We make the text responsive */
+    .categories li a {
+        font-size: 5vw;
+    }
+    
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Products Furniture Sub-categories  */
+
+    /* We make the text responsive and edit the position of it */
+    .sub__categories h1 {
+        /*responsive */
+        font-size: 9vw;
+
+        /* position */
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* We make the margin responsive */
+    .sub-categories__products li {
+        margin: 1%;
+    }
+
+    /* We make the margin responsive */
+    .sub-categories__products li article a img {
+        height: auto;
+        width: 90%;
+    }
+
+    /* We change the font size */
+    .sub-categories__products li article a h3 {
+        font-size: 80%;
+    }
+
+    /* We change the font size */
+    .product__code {
+        font-size: 50%;
+    }
+
+    /* We change the font size */
+    .product__description{
+        font-size: 50%;
+    }
+
+    /* We change the font size */
+    .product__price{
+        font-size: 80%;
+    }
+
+    /* We change the font size */
+    .product__rating{
+        font-size: 50%;
+    }
+    
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Products' Pages */
+
+    /* We display the items to colums and center them, we add left and right responsive space
+    and change the position and the font size */
+    .top__info__product {
+
+        /* flex */
+        flex-direction: column;
+        align-items: center; 
+        
+        /* responsive */
+        margin-left: 0%;
+        margin-right: 0%;
+
+        /* position */
+        margin-top: 40px;
+
+        /* text */
+        font-size: 4vw;
+    }
+
+    /* We change the width and make it responsive */
+    .top__info__product img {
+        /* size */
+        width: 95%;
+    }
+
+
+    /* We change the position and align everything in center */
+    .important__info {
+        /* position */
+        margin-left: 0;
+        
+        /* text */
+        text-align: center;
+    }
+
+    /* We change the font size */
+    .product__name {
+        font-size: 12vw;
+    }
+
+ 
+    /* We make the width and the margin responsive */
+    .product__page__description {
+        margin-left: 5%;
+        width: 90%;
+        
+    }
+
+    /* We make the width responsive and change the position of the input */
+    .form_quantity input[type=number]{
+
+        /* responsive */
+        height: 25%;
+        width: 25%;
+
+        /* position */
+        margin-bottom: 50px;
+        margin-right: 12px;
+    }
+    
+
+    /* We change the width */
+    .form_quantity input[type=submit]{
+        width: 27%;
+       
+    }
+
+
+    /* We change the font size */
+    .important__info li a{
+        font-size: 4vw;
+    }
+    
+    /* We make everything beneath responsive */
+    .product__info section {
+        /* responsive */
+        width: 90%;
+        margin: 0 5% 50px;
+        font-size: 4vw;
+    }
+    
+    /* We make the width responsive */
+    .product__info__photos__flexbox img{
+        height: auto;
+        width: 90%;
+    }
+    
+    /* Ratings */
+
+    /* We change the font size */
+    .product__ratings {
+        font-size: 4vw;
+    }
+    
+    /* We make the width responsive */
+    .overall__rating {
+        width: 60%;
+    }
+
+
+    /* We change the position of the rating and make the width and margin responsive */
+    .user_rating {
+        /* position */
+        margin-top: 12px;
+        margin-bottom: 12px;
+
+        /* responsive */
+        width: 98%; 
+        margin-left: 1%;
+    }
+    
+    /* We make the padding responsive */
+    .product__info__constructor {
+        padding: 1vw;
+    }
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* About us */
+
+    /* We make the size and the space responsive*/
+    .introduction{
+        font-size:4vw; 
+        margin-bottom: 10%;
+    }
+
+
+    /* We make the space responsive */
+    .about_us_intro_picture{
+
+        /* position */
+        margin-bottom: 15%;
+    }
+
+    /* We display the items in a column, align them and make the space below responsive */
+    .about_us_goals{
+        flex-direction: column;
+        margin-bottom: 20%;
+        align-items: center;
+    }
+
+    /* We make everything beneath responsive */
+    .card-about_us{
+        width: 87%;
+        font-size: 4vw;
+        margin-bottom: 6%;
+    }
+
+    /* We display the items in a column and we center them */
+    .bio-cards{
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    /* We make everything beneath responsive */
+    .bio-card{
+        font-size: 4vw;
+        margin-bottom: 20%;
+    }
+
+    /* We make width responsive */
+    .bio-card img{
+        width:50%;
+        
+    }
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Contact us */
+
+    /* We make everything beneath responsive */
+    .contact_us_container h1 {
+        /* responsive */
+        left: 2%;
+        font-size: 4vw;
+        top:10%;
+    }
+
+    /* We make everything beneath responsive */
+    .contact_us_container h2 {
+        /* responsive */
+        left: 2%;
+        font-size: 3vw;
+        top:10%;
+    }
+
+    /* We make everything beneath responsive and change padding*/
+    .contact_us_card1{
+
+        /* position */
+        padding:5px;
+
+        /* responsive */
+        padding-top: 5%;
+        width:35%;
+        left:5%;
+        font-size: 3vw;
+        min-height: 60%;
+        height: 68%;
+    }
+
+    /* We make everything beneath responsive and change padding */
+    .contact_us_card2{
+
+        /* position */
+        padding:5px;
+
+        /* responsive */
+        padding-top: 5%;
+        width:35%;
+        right:5%;
+        font-size: 3vw;
+        min-height: 60%;
+        height: 68%;
+    }
+
+    /* We make padding responsive */
+    .contact_us_form{
+        padding-top: 40%;
+    }
+
+    /* We make font size responsive */
+    .contact_us_form h3{
+        font-size: 4vw;
+       
+    }
+
+    /* We make font size responsive */
+    .form label{
+        font-size: 4vw;
+    }
+
+    /* We make width responsive */
+    .form input{
+        width:40%;
+    }
+
+    /* We make everything beneath responsive */
+    .form input[type=submit]{
+        width:40%;
+        left: 5%;
+        right: 5%;
+        margin-left: 0%;
+    }
+
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    /* Exercise 5 */
+    /* User Registration */
+
+    .from__sign__in {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: right;
+        font-size:3vw;
+    }
+
+    .user_registration_form {
+        /* text */
+        color: #ccc;
+        font-size:4vw;
+    }
+
+    .user_registration_form input{
+        font-size:4vw;
+    }
+
+}
+
+
